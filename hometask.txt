@@ -1,0 +1,37 @@
+1. SELECT stemtext FROM wordform ORDER BY occurences DESC LIMIT 10;
+.
+occurences показывает сколько раз встретилось слово, stemtext - само слово
+
+2. SELECT stemtext FROM wordform WHERE stemtext ILIKE 'a%';
+.
+ILIKE делает проверку независимо от регистра
+
+3. SELECT title FROM work WHERE genretype='p';
+
+4.SELECT AVG(totalparagraphs) AS avg_par FROM work WHERE genretype='t';
+
+5. SELECT title FROM work WHERE
+totalwords > (
+SELECT AVG(totalwords) FROM work);
+
+6. SELECT c.charname, c.speechcount, w.title FROM character AS c JOIN work AS w ON c.charid=w.workid;
+
+7. SELECT ROUND(AVG(speechcount), 2) AS avg_replies FROM character;
+
+8. SELECT wordcount, paragraphid FROM paragraph;
+
+9. SELECT charname, speechcount FROM character WHERE speechcount > 15 AND speechcount < 30;
+
+10. SELECT title, year FROM work WHERE year > 1600 AND year < 1700;
+
+11. SELECT title FROM work WHERE longtitle ILIKE '%the%';
+
+12. SELECT DISTINCT section FROM paragraph;
+
+13. SELECT c.chapterid, c.description, w.title FROM chapter AS c JOIN work AS w ON c.workid=w.workid;
+
+14. SELECT p.paragraphnum, c.charname, c.speechcount FROM paragraph AS p JOIN character AS c ON p.charid=c.charid;
+
+15. SELECT p.paragraphnum, w.title, w.year FROM paragraph AS p JOIN work AS w ON p.charid=w.workid;
+
+
