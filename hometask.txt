@@ -14,7 +14,7 @@ ILIKE делает проверку независимо от регистра
 totalwords > (
 SELECT AVG(totalwords) FROM work);
 
-6. SELECT c.charname, c.speechcount, w.title FROM character AS c JOIN work AS w ON c.charid=w.workid;
+6. SELECT c.charname, c.speechcount, w.title FROM character AS c JOIN paragraph AS p ON c.charid=p.charid JOIN work AS w ON p.workid=w.workid;
 
 7. SELECT ROUND(AVG(speechcount), 2) AS avg_replies FROM character;
 
